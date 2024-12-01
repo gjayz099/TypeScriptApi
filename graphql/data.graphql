@@ -1,0 +1,64 @@
+query PostPassenger {
+    postPassenger(
+        input: {
+            FirstName: "John"
+            LastName: "Doe"
+            DateOfBirth: "1985-06-15"
+            Gender: "Male"
+            MiddleName: "William"
+            Nationality: "American"
+            PassportNumber: "X1234567"
+            Email: "john.doe@example.com"
+            PhoneNumber: null
+            EmergencyContact: null
+        }
+    ) {
+        message
+        Id
+    }
+}
+
+
+
+query PostBookingWithIdFlight {
+    postBookingWithIdFlight(
+        input: {
+            PassengerID: "241eee57-0f18-411f-83e6-d0364410c0c5"
+            SeatClass: "Business"
+            SeatPreference: "Aisle"
+        }
+        Id: "bd0752a6-fabe-480c-82cb-cfe4fb374587"
+    ) {
+        PassengerID {
+            Id
+            FirstName
+            LastName
+            MiddleName
+            DateOfBirth
+            Gender
+            Nationality
+            PassportNumber
+            Email
+            PhoneNumber
+            EmergencyContact
+        }
+        FlightID {
+            Id
+            FlightNumber
+            DepartureAirport
+            ArrivalAirport
+            FlightPrice
+            DepartureDateTime
+            ArrivalDateTime
+            FlightDuration
+            Airline
+            PassengerCapacity
+        }
+        SeatClass
+        SeatPreference
+        BookingStatus
+        PaymentStatus
+        Id
+    }
+}
+
